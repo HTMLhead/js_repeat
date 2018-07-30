@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>입력한 수, 갯수와 합 구하기</h2>
+    <script>
+        var store = 0;
+        var count = -1;
+        while (n != 0) {
+            var n = Number(prompt('아무 숫자나입력하세요.'))
+            store = (store + n)
+            count++
+        }
+        document.write('입력한 수의 갯수는 ' + count + '개이며 입력한 값들의 합은 ' + store + '입니다.')
+    </script>
+</body>
+</html>
