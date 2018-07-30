@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gugudan</title>
+</head>
+
+<body>
+    출력할 단 :
+    <input type='text' id='num'>
+    <button onclick='display()'>확인</button>
+    <script>
+        display = function () {
+            var num = document.getElementById('num').value
+            if (num > 1 && num < 10) {
+                for (var i = 1; i < 10; i++) {
+                    document.write(num + ' * ' + i + ' = ' + (num * i) + '<br>');
+                }
+            } else {
+                document.write('2~9 사이의 숫자만 입력해 주세요.')
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
