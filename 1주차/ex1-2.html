@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMI 계산</title>
+</head>
+<body>
+    <h2>자괴감 주는 프로그램</h2>
+    <script>
+        var weight = Number(prompt("당신의 몸무게를 입력해 주세요.(kg)"))
+        var tall = Number(prompt('당신의 키를 입력해 주세요(cm)'))
+
+        var bmi = Math.floor(weight / ((tall / 100) * (tall / 100)))
+        document.write('당신의 BMI 지수는' + bmi + '입니다.')
+    </script>
+</body>
+</html>
