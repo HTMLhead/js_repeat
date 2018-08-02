@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+</head>
+<body>
+    <h2>사칙연산 계산기</h2>
+    <div>
+        <input id = 'n1' type = 'text'>
+        <input id = 'n2' type = 'text'>
+        <button onclick = 'calc()'>실행</button>
+    </div>
+    <div id = 'output'></div>
+    <script>
+        function calc() {
+            const str1 = document.getElementById('n1').value
+            const str2 = document.getElementById('n2').value
+            const n1 = Number(str1)
+            const n2 = Number(str2)
+
+            var str = ""
+            str += '덧셈 : ' + (n1 + n2) + '<br>'
+            str += '뺄셈 : ' + (n1 - n2) + '<br>'
+            str += '곱셈 : ' + (n1 * n2) + '<br>'
+            str += '나눗셈 : ' + (n1 / n2) + '<br>'
+            const out = document.getElementById('output');
+            out.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
