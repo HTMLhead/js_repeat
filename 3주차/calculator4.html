@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+</head>
+
+<body>
+    <h2>계산기 구현하기</h2>
+    <div id = 'output'></div>
+    <script>
+        var num = Number(prompt("숫자를 입력하세요"))
+        while (true) {
+            var op = prompt("연산자를 입력하세요")
+            if (op === 'q') {
+                break;
+            }
+            var num2 = Number(prompt("다시 숫자를 입력해 주세요"))
+
+            if (op === 'q') {
+                break;
+            } else if (op === "+") {
+                num += num2    
+            } else if (op === '-') {
+                num -= num2
+            } else if (op === '*') {
+                num *= num2
+            } else if (op === '.') {
+                num /= num2
+            } else {
+                num = "중간 오류"
+                break;
+            }
+            console.log(num)
+            console.log(op)
+        }
+        var out = document.getElementById('output');
+        out.innerHTML = '결과값은 : ' + num + '입니다.'
+    </script>
+</body>
+
+</html>
