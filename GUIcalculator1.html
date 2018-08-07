@@ -5,59 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GUI-calculator</title>
+    <title>GUI calculator</title>
     <style>
         #output {
-            background-color: rgb(243, 243, 11);
-            width: 228px;
-            padding: 10px;
-            font-family: courier;
-            font-size: 20px;
-            color: black;
-            margin: 5px
-
-        }
-        button {
-            font-size: 20px;
-            background-color: antiquewhite;
-            margin: 5px;
-            width: 50px;
+            margin: 10px;
+            font-size: 30px;
             height: 50px;
+            width: 370px;
+            background-color: gray;
+        }
+
+        button {
+            margin: 10px;
+            font-size: 30px;
+            width: 74px;
+            height: 74px;
         }
     </style>
 </head>
 
 <body>
-    <h2>GUI계산기 구현</h2>
-    <div id='output'>0</div>
-    <div>
-        <div id='btns1'>
-            <button id='7' onclick='clickNumbers(event)'>7</button>
-            <button id='8' onclick='clickNumbers(event)'>8</button>
-            <button id='9' onclick='clickNumbers(event)'>9</button>
-            <button id='div' onclick='clickNumbers(event)'>/</button>
-        </div>
-        <div id='btns2'>
-            <button id='4' onclick='clickNumbers(event)'>4</button>
-            <button id='5' onclick='clickNumbers(event)'>5</button>
-            <button id='6' onclick='clickNumbers(event)'>6</button>
-            <button id='mul' onclick='clickNumbers(event)'>*</button>
-        </div>
-        <div id='btns3'>
-            <button id='1' onclick='clickNumbers(event)'>1</button>
-            <button id='2' onclick='clickNumbers(event)'>2</button>
-            <button id='3' onclick='clickNumbers(event)'>3</button>
-            <button id='sub' onclick='clickNumbers(event)'>-</button>
-        </div>
-        <div id='btns4'>
-            <button id='del' onclick='clickNumbers(event)'>BS</button>
-            <button id='0' onclick='clickNumbers(event)'>0</button>
-            <button id='eq' onclick='showResult(event)'>=</button>
-            <button id='plus' onclick='clickNumbers(event)'>+</button>
+    <h2>계산기</h2>
+    <div id='layout'>
+        <div id='output'>0</div>
+        <div id='btns'>
+            <div>
+                <button id='7' onclick='clickNumbers(event)'>7</button>
+                <button id='8' onclick='clickNumbers(event)'>8</button>
+                <button id='9' onclick='clickNumbers(event)'>9</button>
+                <button id='mul' onclick='clickNumbers(event)'>*</button>
+            </div>
+            <div>
+                <button id='4' onclick='clickNumbers(event)'>4</button>
+                <button id='5' onclick='clickNumbers(event)'>5</button>
+                <button id='6' onclick='clickNumbers(event)'>6</button>
+                <button id='sub' onclick='clickNumbers(event)'>-</button>
+            </div>
+            <div>
+                <button id='1' onclick='clickNumbers(event)'>1</button>
+                <button id='2' onclick='clickNumbers(event)'>2</button>
+                <button id='3' onclick='clickNumbers(event)'>3</button>
+                <button id='plus' onclick='clickNumbers(event)'>+</button>
+            </div>
+            <div>
+                <button id='BS' onclick='clickNumbers(event)'>BS</button>
+                <button id='0' onclick='clickNumbers(event)'>0</button>
+                <button id='div' onclick='clickNumbers(event)'>/</button>
+                <button id='equal' onclick='showResult(event)'>=</button>
+            </div>
         </div>
     </div>
-    <script src='GUIcalculator1.js'>
-    </script>
+    <script src='GUIcalculator1.js'></script>
 </body>
 
 </html>
