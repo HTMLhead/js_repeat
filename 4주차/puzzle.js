@@ -9,6 +9,8 @@ const check = document.getElementById('check'); // checking
 
 const game = {
     btns: [],
+    current: 0,
+    maxNum: 3
 };
 
 game.words = 'CRAZYBOY,NADOONADOO,SIMPSON,GGAMDOONGLEE,QUESTION'.split(',')
@@ -16,7 +18,7 @@ game.choose = function () {
     var idx = Math.floor(Math.random() * this.words.length);
     this.answer = this.words[idx];
     this.letters = this.answer.split('');
-    output.innerHTML = this.answer;
+    output.innerHTML = 'answer : ' + this.answer;
 };
 
 game.addButtons = function () {
@@ -28,12 +30,66 @@ game.addButtons = function () {
     }
 }
 
+game.removeButtons = function() {
+    for (let i = 0; i < this.btns.length; i++) {
+        word.removeChild(this.btns[i])
+    }
+    this.btns = [];
+}
+
+game.isAnswer = function() {
+    return this.answer === this.letters.join('');
+}
+
 game.checking = function () {
-    var gameStr = this.letters.join('')
-    if (gameStr === this.answer) {
+    if (this.isAnswer()) {
         check.innerHTML = '일치합니다'
     } else {
         check.innerHTML = '다릅니다.'
+    }
+};
+
+game.swap = function () {
+    let blank = [];
+    while (this.letters.length != 0) {
+        let s = this.letters.pop();
+        blank.push(s);
+    }
+
+    this.letters = blank;
+    this.repeat();
+    this.checking();
+}
+
+game.rpush = function () {
+    let s = this.letters.pop();
+    this.letters.unshift(s);
+    this.repeat();
+    this.checking();
+}
+
+game.lpush = function () {
+    let s = this.letters.shift();
+    this.letters.push(s);
+    this.repeat();
+    this.checking();
+}
+
+game.progress = function() {
+    if (this.isAnswer()) {
+        this.current++
+        this.removeButtons();
+        this.init();
+        this.shuffle();
+        let str = "";
+        for (let i = 0; i < this.current; i++) {
+            str += '0'
+        }
+        progress.innerHTML = str;
+    }
+    
+    if (this.current === this.maxNum) {
+        alert("thank you for playing");
     }
 };
 
@@ -52,31 +108,22 @@ game.repeat = function () {
 }
 
 // event Handler
-const swap = function () {
-    let blank = [];
-    while (game.letters.length != 0) {
-        let s = game.letters.pop();
-        blank.push(s);
-    }
 
-    game.letters = blank;
-    game.repeat();
-    game.checking();
+const swap = function() {
+    game.swap();
+    game.progress();
 }
 
-const rpush = function () {
-    let s = game.letters.pop();
-    game.letters.unshift(s);
-    game.repeat();
-    game.checking();
+const rpush = function() {
+    game.rpush();
+    game.progress();
 }
 
-const lpush = function () {
-    let s = game.letters.shift();
-    game.letters.push(s);
-    game.repeat();
-    game.checking();
+const lpush = function() {
+    game.lpush();
+    game.progress();
 }
+
 
 // shuffle
 game.shuffle = function () {
