@@ -6,12 +6,16 @@
 const output = document.getElementById('answer'); // answer
 const word = document.getElementById('word'); // display button
 const check = document.getElementById('check'); // checking
+const progress = document.getElementById('progress');
+const time = document.getElementById('time');
 
 const game = {
     btns: [],
+    maxNum: 3,
     current: 0,
-    maxNum: 3
 };
+
+game.startTime = Date.now();
 
 game.words = 'CRAZYBOY,NADOONADOO,SIMPSON,GGAMDOONGLEE,QUESTION'.split(',')
 game.choose = function () {
@@ -87,16 +91,21 @@ game.progress = function() {
         }
         progress.innerHTML = str;
     }
-    
-    if (this.current === this.maxNum) {
-        alert("thank you for playing");
-    }
 };
+
+game.isEnd = function() {
+    if (this.current === 3) {
+        var sec = (Date.now() - game.startTime) / 1000;
+        alert('thank you for playing record :' + sec);
+        clearInterval(x);
+    }
+}
 
 game.init= function() {
     this.choose();
     this.addButtons();
     this.checking();
+    this.isEnd();
 }
 game.init();
 
@@ -127,16 +136,23 @@ const lpush = function() {
 
 // shuffle
 game.shuffle = function () {
-    const toggle = Math.floor(Math.random() * 2) === 0;
+    var toggle = Math.floor(Math.random() * 2) === 0;
 
     if (toggle) {
         swap();
     }
 
-    const n = Math.floor(Math.random() * this.letters.length);
+    var n = Math.floor(Math.random() * this.letters.length - 1);
 
     for (let i = 0; i < n; i++) {
         lpush();
     }
 }
 game.shuffle();
+
+var updateTime = function() {
+    var now = Date.now() - game.startTime;
+    time.innerHTML = now / 1000 + ' s';
+}
+
+var x = setInterval(updateTime, 50);
